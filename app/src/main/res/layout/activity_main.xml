@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ImageGallery"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif"
+            android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/load_images_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LoadImageFromGallery"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:onClick="onClick"/>
+
+    <Button
+        android:id="@+id/load_gallery_images_path"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LoadGalleryImagesPath"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:onClick="onClick"/>
+
+    <ImageView
+        android:id="@+id/selected_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

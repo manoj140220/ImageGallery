@@ -1,0 +1,14 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.manoj.gallery" >
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <application
+        android:requestLegacyExternalStorage="true" >
+        <activity
+            android:name=".ImageGalleryActivity"
+            android:theme="@style/AppTheme"/>
+    </application>
+
+</manifest>
