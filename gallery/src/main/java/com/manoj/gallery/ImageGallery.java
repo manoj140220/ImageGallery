@@ -3,7 +3,6 @@ package com.manoj.gallery;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
 import android.os.Parcelable;
 import android.widget.Toast;
 
@@ -28,14 +27,20 @@ public class ImageGallery implements PermissionNotify, NotifyData, NotifySelecti
     private Activity activity;
     private Boolean previewImages = true;
     private ImageDataNotifier imageDataNotifier;
-    static final String IMAGE_DATA_LIST = "IMAGE_DATA_LIST";
-    static NotifySelection notifySelection;
+    private final String image_data_list = "IMAGE_DATA_LIST";
+    private NotifySelection notifySelection;
+    static ImageGallery imageGallery;
+
+    public ImageGallery() {
+        notifySelection = this;
+    }
 
     public ImageGallery(Activity activity, ImageDataNotifier imageDataNotifier, Boolean previewImages) {
         this.activity = activity;
         this.previewImages = previewImages;
         this.imageDataNotifier = imageDataNotifier;
         notifySelection = this;
+        imageGallery = this;
         new RuntimePermission(this, galleryPermission, activity);
     }
 
@@ -63,7 +68,7 @@ public class ImageGallery implements PermissionNotify, NotifyData, NotifySelecti
          * */
         if(previewImages){
             Intent intent = new Intent(activity, ImageGalleryActivity.class);
-            intent.putParcelableArrayListExtra(IMAGE_DATA_LIST, (ArrayList<? extends Parcelable>) imageListModels);
+            intent.putParcelableArrayListExtra(image_data_list, (ArrayList<? extends Parcelable>) imageListModels);
             activity.startActivity(intent);
         }else {
             imageDataNotifier.notifyImageListPath(imageListModels);
@@ -73,5 +78,15 @@ public class ImageGallery implements PermissionNotify, NotifyData, NotifySelecti
     @Override
     public void notifySelection(String filePath) {
         imageDataNotifier.notifySelectedImagePath(filePath);
+    }
+
+    public static ImageGallery getInstance(){
+        if(imageGallery == null)
+            imageGallery = new ImageGallery();
+        return imageGallery;
+    }
+
+    public NotifySelection getNotifySelection() {
+        return notifySelection;
     }
 }

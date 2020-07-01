@@ -16,17 +16,15 @@ import com.manoj.gallery.view.GridItemDecoration;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.manoj.gallery.ImageGallery.IMAGE_DATA_LIST;
-import static com.manoj.gallery.ImageGallery.notifySelection;
-
 /**
  * Created By : Manoj DB on 29/6/20
  */
 public class ImageGalleryActivity extends AppCompatActivity implements NotifyImageListClick {
 
-    RecyclerView imageGalleryList;
-    ImageGalleryAdapter imageGalleryAdapter;
-    List<ImageListModel> imageListModels = new ArrayList<>();
+    private RecyclerView imageGalleryList;
+    private ImageGalleryAdapter imageGalleryAdapter;
+    private List<ImageListModel> imageListModels = new ArrayList<>();
+    private final String image_data_list = "IMAGE_DATA_LIST";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -35,7 +33,7 @@ public class ImageGalleryActivity extends AppCompatActivity implements NotifyIma
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null)
-            imageListModels = bundle.getParcelableArrayList(IMAGE_DATA_LIST);
+            imageListModels = bundle.getParcelableArrayList(image_data_list);
 
         if(imageListModels != null && imageListModels.isEmpty()){
             Toast.makeText(this, "No Data Found To Display", Toast.LENGTH_SHORT).show();
@@ -52,7 +50,8 @@ public class ImageGalleryActivity extends AppCompatActivity implements NotifyIma
 
     @Override
     public void NotifyImageClick(String filePath) {
-        notifySelection.notifySelection(filePath);
+        ImageGallery imageGallery = ImageGallery.getInstance();
+        imageGallery.getNotifySelection().notifySelection(filePath);
         finish();
     }
 }

@@ -1,4 +1,5 @@
 
-^squid:UselessImportCheck".Remove this unused import 'android.os.Bundle'.(°şÊóøÿÿÿÿ8…ôŠø¯.
-Msquid:S5411@"*Use the primitive boolean expression here.(ûó»Úüÿÿÿÿ8‰Ïœö¯.
-Osquid:S3010&",Remove this assignment of "notifySelection".(ûÆõ‚úÿÿÿÿ8Ëµ÷¯.
+Msquid:S5411E"*Use the primitive boolean expression here.(ûó»Úüÿÿÿÿ8‰Ïœö¯.
+Dsquid:S1170"!Make this final field static too.(Á¤ÇÚûÿÿÿÿ8‹òİÇ°.
+Lsquid:S3010+")Remove this assignment of "imageGallery".(…úâÊûÿÿÿÿ8šåïÇ°.
+~squid:S00116"ZRename this field "image_data_list" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¤ÇÚûÿÿÿÿ8«·€È°.
