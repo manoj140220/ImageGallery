@@ -7,9 +7,11 @@ ImageGallery : Load images from device or external storage. The following librar
             maven { url 'https://jitpack.io' }
         }
     }
-
+    
+    latest_version : 1.0.1
+    
     dependencies {
-        implementation 'com.github.manoj140220:ImageGallery:1.0.0'
+        implementation 'com.github.manoj140220:ImageGallery:latest_version'
     }
 
 # Usage
