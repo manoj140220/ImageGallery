@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created By : Manoj DB on 29/6/20
  */
+@SuppressWarnings("all")
 public class ImageLoader extends AsyncTask<Void, Void, List<ImageListModel>> {
 
     private Activity activity;

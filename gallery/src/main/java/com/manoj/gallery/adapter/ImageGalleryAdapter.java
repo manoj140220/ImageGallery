@@ -21,9 +21,9 @@ import java.util.List;
  */
 public class ImageGalleryAdapter extends RecyclerView.Adapter<ImageGalleryViewHolder>{
 
-    Activity activity;
-    List<ImageListModel> imagePath = new ArrayList<>();
-    NotifyImageListClick notifyImageListClick;
+    private Activity activity;
+    private List<ImageListModel> imagePath = new ArrayList<>();
+    private NotifyImageListClick notifyImageListClick;
 
     public ImageGalleryAdapter(Activity activity, List<ImageListModel> imagePath,
                                NotifyImageListClick notifyImageListClick) {

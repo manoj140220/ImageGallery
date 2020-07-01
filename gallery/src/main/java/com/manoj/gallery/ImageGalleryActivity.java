@@ -19,6 +19,7 @@ import java.util.List;
 /**
  * Created By : Manoj DB on 29/6/20
  */
+@SuppressWarnings("all")
 public class ImageGalleryActivity extends AppCompatActivity implements NotifyImageListClick {
 
     private RecyclerView imageGalleryList;
