@@ -41,6 +41,9 @@ public class MainActivity extends AppCompatActivity implements ImageDataNotifier
                         MainActivity.this,
                         false);
                 break;
+            case R.id.capture_image:
+                new ImageGallery(MainActivity.this, MainActivity.this);
+                break;
         }
     }
 
@@ -52,7 +55,9 @@ public class MainActivity extends AppCompatActivity implements ImageDataNotifier
     @Override
     public void notifySelectedImagePath(String filePath) {
         Glide.with(this)
-            .load(filePath)
-            .into(selectedImage);
+                .load(filePath)
+                .placeholder(R.drawable.ic_place_holder)
+                .error(R.drawable.ic_broken_image)
+                .into(selectedImage);
     }
 }

@@ -33,6 +33,16 @@
         android:onClick="onClick"/>
 
     <Button
+        android:id="@+id/capture_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CaptureImage"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:onClick="onClick"/>
+
+    <Button
         android:id="@+id/load_gallery_images_path"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

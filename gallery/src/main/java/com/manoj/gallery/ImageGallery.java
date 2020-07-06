@@ -25,17 +25,24 @@ public class ImageGallery implements PermissionNotify, NotifyData, NotifySelecti
 
     private final String[] galleryPermission = {
             Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+    private final String[] cameraPermission = {Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
     private Activity activity;
     private Boolean previewImages = true;
     private ImageDataNotifier imageDataNotifier;
     private final String image_data_list = "IMAGE_DATA_LIST";
+    private final String is_camera_action = "IS_CAMERA_ACTION";
     private NotifySelection notifySelection;
+    private Boolean isCamera;
     static ImageGallery imageGallery;
 
     public ImageGallery() {
         notifySelection = this;
     }
 
+    /**
+     * Load images from internal and external storeage.
+     * */
     public ImageGallery(Activity activity, ImageDataNotifier imageDataNotifier, Boolean previewImages) {
         this.activity = activity;
         this.previewImages = previewImages;
@@ -45,9 +52,27 @@ public class ImageGallery implements PermissionNotify, NotifyData, NotifySelecti
         new RuntimePermission(this, galleryPermission, activity);
     }
 
+    /**
+     * Load camera to capture picture.
+     * */
+    public ImageGallery(Activity activity, ImageDataNotifier imageDataNotifier){
+        this.activity = activity;
+        this.imageDataNotifier = imageDataNotifier;
+        notifySelection = this;
+        imageGallery = this;
+        isCamera = true;
+        new RuntimePermission(this, cameraPermission, activity);
+    }
+
     @Override
     public void notifyPermissionGrant() {
-        loadImages();
+        if(isCamera){
+            Intent intent = new Intent(activity, ImageGalleryActivity.class);
+            intent.putExtra(is_camera_action, true);
+            activity.startActivity(intent);
+        }else {
+            loadImages();
+        }
     }
 
     private void loadImages() {

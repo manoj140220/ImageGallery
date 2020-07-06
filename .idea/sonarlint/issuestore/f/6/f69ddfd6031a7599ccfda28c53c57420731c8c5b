@@ -1,5 +1,4 @@
 
-Dsquid:S1170"!Make this final field static too.(Á¤ÇÚûÿÿÿÿ8„´ŞÇ°.
-}squid:S1450"_Remove the "imageGalleryList" field and declare it as a local variable in the relevant methods.(«Òà½8Ø‚È°.
-~squid:S00116"ZRename this field "image_data_list" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á¤ÇÚûÿÿÿÿ8—¾È°.
-…squid:S1450"bRemove the "imageGalleryAdapter" field and declare it as a local variable in the relevant methods.(’ÙÈöùÿÿÿÿ8Ø‚È°.
+]squid:UselessImportCheck	"-Remove this unused import 'android.util.Log'.(Ô¦Ø²øÿÿÿÿ8õ±ªĞ°.
+_squid:UselessImportCheck"5Remove this unused import 'java.io.FileOutputStream'.(˜«ªg8õ±ªĞ°.
+^squid:UselessImportCheck"4Remove this unused import 'android.graphics.Bitmap'.(¾ì8õ±ªĞ°.
