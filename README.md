@@ -46,8 +46,7 @@ Impliment :
     @Override
     public void notifySelectedImagePath(String filePath) {
         /**
-        * Image selected from galler or Image captured using camera
-        * The result file path will be notified here.
+        * File path : Image selected from galler or Image captured using camera.
         * */
     }
 
