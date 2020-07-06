@@ -20,8 +20,9 @@ ImageGallery : Load images from device or external storage. The following librar
 
     new ImageGallery({ActivityContext}, {CurrentClassObject}, boolean);
     
-boolean : If the boolean is set to true -> you will be redirected to image grid '4' view for selecting specifc file
-boolean : If the boolean is set to false -> you will get List<Image> data. You can use the same to create custom UI
+boolean : If the boolean is set to true -> you will be redirected to image grid '4' view for selecting specifc file.
+
+boolean : If the boolean is set to false -> you will get List<Image> data. You can use the same to create custom UI.
 
 # Capture image
 
