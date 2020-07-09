@@ -33,7 +33,7 @@ public class ImageGallery implements PermissionNotify, NotifyData, NotifySelecti
     private final String image_data_list = "IMAGE_DATA_LIST";
     private final String is_camera_action = "IS_CAMERA_ACTION";
     private NotifySelection notifySelection;
-    private Boolean isCamera;
+    private Boolean isCamera = false;
     static ImageGallery imageGallery;
 
     public ImageGallery() {
