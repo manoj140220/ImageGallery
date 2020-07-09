@@ -8,7 +8,7 @@ ImageGallery : Load images from device or external storage. The following librar
         }
     }
     
-    latest_version : 1.0.2
+    latest_version : 1.0.4
     
     dependencies {
         implementation 'com.github.manoj140220:ImageGallery:latest_version'
