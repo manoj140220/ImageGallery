@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import com.manoj.gallery.model.ImageListModel;
 import com.manoj.gallery.notifier.NotifyData;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -84,13 +85,26 @@ public class ImageLoader extends AsyncTask<Void, Void, List<ImageListModel>> {
 
             String widthHeight = cursor.getString(imageWidthColumIndex) + "x"
                     + cursor.getString(imageHeightColumnIndex);
-            ImageListModel imageListModel = new ImageListModel();
-            imageListModel.setImagePath(cursor.getString(dataColumnIndex));
-            imageListModel.setImageTitle(cursor.getString(imageTitleColumnIndex));
-            imageListModel.setImageWidthHeight(widthHeight);
-            imageListModel.setImageTakenDate(cursor.getString(imageTakenDate));
-            imageListModel.setImageSize(cursor.getString(imageSizeColumnIndex));
-            imageListModels.add(imageListModel);
+
+            String filePath = cursor.getString(dataColumnIndex);
+            File file = new File(filePath);
+            /**
+             * We are doing the same because after deleting the file, MediaStore
+             * will not know that the file is deleted, because there is no
+             * methods or such to notify the same.
+             *
+             * Using the path we can find weather the media exist or not if so then
+             * only we will add that content.
+             * */
+            if(file.exists()){
+                ImageListModel imageListModel = new ImageListModel();
+                imageListModel.setImagePath(cursor.getString(dataColumnIndex));
+                imageListModel.setImageTitle(cursor.getString(imageTitleColumnIndex));
+                imageListModel.setImageWidthHeight(widthHeight);
+                imageListModel.setImageTakenDate(cursor.getString(imageTakenDate));
+                imageListModel.setImageSize(cursor.getString(imageSizeColumnIndex));
+                imageListModels.add(imageListModel);
+            }
         }
     }
 
